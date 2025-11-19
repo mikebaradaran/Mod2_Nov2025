@@ -1,0 +1,14 @@
+/* styles.css */
+.form-group {
+    display: flex;
+    margin-top: 10px;
+}
+
+/* .form-group input {
+    flex: 1;
+} */
+
+.form-group label {
+    margin-right: 10px;
+    width: 50px;
+}
