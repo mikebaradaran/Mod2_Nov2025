@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout – Solution</title>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #ecf0f1;
+        }
+
+        /* 1️⃣ Header */
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 2️⃣ Navigation — Inline-block layout */
+        nav {
+            background: #34495e;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            display: inline-block;
+            /* places links horizontally */
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #3b5998;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background: #2b4162;
+        }
+
+        /* 3️⃣ Main content — Float layout */
+        main {
+            overflow: auto;
+            /* clears floats */
+            padding: 10px;
+        }
+
+        article {
+            float: left;
+            width: 70%;
+            background: white;
+            padding: 20px;
+            box-sizing: border-box;
+            /* include padding in width */
+            border-radius: 6px;
+        }
+
+        aside {
+            float: right;
+            width: 25%;
+            background: #bdc3c7;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 6px;
+        }
+
+        /* 4️⃣ Footer — Clear floats */
+        footer {
+            clear: both;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        /* 5️⃣ Responsive stacking using media query */
+        @media (max-width: 700px) {
+
+            article,
+            aside {
+                float: none;
+                /* remove float behavior */
+                width: 100%;
+                /* full width */
+                margin-bottom: 10px;
+            }
+
+            nav a {
+                display: block;
+                /* stack nav links vertically */
+                margin: 5px auto;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Responsive Layout – Solution</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <article>
+            <h2>Main Content Area</h2>
+            <p>This section uses <strong>float: left</strong> to create a two-column layout. The sidebar is floated
+                right. The <strong>overflow: auto</strong> on the <code>main</code> element clears the floats,
+                preventing the footer from overlapping.</p>
+            <p>Try resizing the window — once you go below 700px, the layout switches to a single column.</p>
+        </article>
+
+        <aside>
+            <h3>Sidebar</h3>
+            <p>This sidebar is floated to the right. Notice how it wraps under the article on small screens due to the
+                media query.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Footer Section — stays below floated content.</p>
+    </footer>
+
+</body>
+
+</html>

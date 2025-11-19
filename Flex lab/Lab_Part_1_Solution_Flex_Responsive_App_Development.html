@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Layout – Solution</title>
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #ecf0f1;
+    }
+
+    /* 1️⃣ Header */
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 2️⃣ Navigation using Flexbox */
+    nav {
+      background: #34495e;
+      display: flex;
+      /* make links flex items */
+      justify-content: center;
+      /* center them horizontally */
+      flex-wrap: wrap;
+      /* wrap on small screens */
+      gap: 10px;
+      /* space between links */
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      background: #3b5998;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #2b4162;
+    }
+
+    /* 3️⃣ Main content area using Flexbox */
+    main {
+      display: flex;
+      justify-content: space-between;
+      /* spread article and sidebar */
+      align-items: flex-start;
+      /* align to top */
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      /* allow wrapping for small screens */
+      background: #ecf0f1;
+    }
+
+    article {
+      flex: 3;
+      /* takes 3 parts of available space */
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    aside {
+      flex: 1;
+      /* takes 1 part of available space */
+      background: #bdc3c7;
+      padding: 20px;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    /* 4️⃣ Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    /* 5️⃣ Responsive stacking */
+    @media (max-width: 700px) {
+      main {
+        flex-direction: column;
+        /* stack article and sidebar */
+      }
+
+      nav {
+        flex-direction: column;
+        /* stack nav links vertically */
+        align-items: center;
+      }
+
+      nav a {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Flexbox Layout – Solution</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <main>
+    <article>
+      <h2>Main Content Area</h2>
+      <p>This section now uses <strong>Flexbox</strong> for layout. Instead of floating elements, we simply set
+        <code>display: flex</code> on the <code>main</code> container and control spacing with
+        <code>justify-content</code> and <code>gap</code>.</p>
+      <p>The <code>article</code> expands to take up more space using <code>flex: 3</code>, while the <code>aside</code>
+        takes less space with <code>flex: 1</code>.</p>
+    </article>
+
+    <aside>
+      <h3>Sidebar</h3>
+      <p>The sidebar is now positioned automatically by the flex container — no floats needed! Resize the window to see
+        the <code>flex-direction: column</code> rule stack items vertically on smaller screens.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Footer Section — no float clearing required.</p>
+  </footer>
+
+</body>
+
+</html>

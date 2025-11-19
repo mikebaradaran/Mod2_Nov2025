@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Demonstration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #2c3e50;
+        }
+
+        /* General Flex Styling */
+        .container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: #e0e0e0;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .item {
+            background: #2196F3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* Section 1 – Basic Flex */
+        #basic-flex .item {
+            flex: 1;
+            /* equal width for all items */
+        }
+
+        /* Section 2 – Justify + Align */
+        #alignment {
+            height: 120px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Section 3 – Grow, Shrink, Basis */
+        #grow-shrink .item:nth-child(1) {
+            flex: 1 1 100px;
+            background: #4CAF50;
+        }
+
+        #grow-shrink .item:nth-child(2) {
+            flex: 2 1 100px;
+            background: #FF9800;
+        }
+
+        #grow-shrink .item:nth-child(3) {
+            flex: 3 1 100px;
+            background: #9C27B0;
+        }
+
+        /* Section 4 – Wrapping */
+        #wrapping {
+            flex-wrap: wrap;
+        }
+
+        #wrapping .item {
+            flex: 1 1 150px;
+            background: #009688;
+        }
+
+        /* Section 5 – Order */
+        #order .item:nth-child(1) {
+            order: 2;
+            background: #E91E63;
+        }
+
+        #order .item:nth-child(2) {
+            order: 1;
+            background: #3F51B5;
+        }
+
+        #order .item:nth-child(3) {
+            order: 3;
+            background: #795548;
+        }
+
+        /* Section 6 – Nested Flex */
+        #nested .inner {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        #nested .inner div {
+            background: #FFC107;
+            color: #333;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Section 7 – Align Content (multiple rows) */
+        #align-content {
+            flex-wrap: wrap;
+            align-content: space-around;
+            height: 200px;
+        }
+
+        #align-content .item {
+            flex: 1 1 100px;
+            background: #607D8B;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background: #fafafa;
+            }
+
+            #order .item:nth-child(1) {
+                order: -1;
+            }
+
+            /* reorder first item on small screens */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>All-in-One Flexbox Demonstration</h1>
+    <p>Resize the browser to see how items adapt, wrap, and reorder responsively.</p>
+
+    <h2>1️⃣ Basic Flex Layout</h2>
+    <div id="basic-flex" class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h2>2️⃣ Justify & Align Items</h2>
+    <div id="alignment" class="container">
+        <div class="item">Left</div>
+        <div class="item">Middle</div>
+        <div class="item">Right</div>
+    </div>
+
+    <h2>3️⃣ Flex Grow, Shrink & Basis</h2>
+    <div id="grow-shrink" class="container">
+        <div class="item">1 1 100px</div>
+        <div class="item">2 1 100px</div>
+        <div class="item">3 1 100px</div>
+    </div>
+
+    <h2>4️⃣ Wrapping Items</h2>
+    <div id="wrapping" class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <h2>5️⃣ Order of Items</h2>
+    <div id="order" class="container">
+        <div class="item">First (order 2)</div>
+        <div class="item">Second (order 1)</div>
+        <div class="item">Third (order 3)</div>
+    </div>
+
+    <h2>6️⃣ Nested Flex Containers</h2>
+    <div id="nested" class="container">
+        <div class="item">
+            Outer 1
+            <div class="inner">
+                <div>A</div>
+                <div>B</div>
+            </div>
+        </div>
+        <div class="item">
+            Outer 2
+            <div class="inner">
+                <div>C</div>
+                <div>D</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>7️⃣ Align Content (multiple rows)</h2>
+    <div id="align-content" class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+
+</body>
+
+</html>
