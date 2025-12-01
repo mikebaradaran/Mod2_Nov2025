@@ -8,53 +8,47 @@
     <style>
         .container {
             display: flex;
-            background: #eee;
+            align-items: flex-start; /* default cross‑axis alignment */
+            gap: 30px;
+
+            background: darkblue;
             padding: 20px;
-            gap: 10px;
-            height: 150px;
-            align-items: flex-start;
-            /* default cross‑axis alignment */
+            height: 100px;
         }
 
         .item {
-            flex: 1;              /* grow */
-            align-self: center;   /* overrides align-items */
-            order: 2;             /* item position */
-            background: #cce4ff;
+            background: lightyellow;
             padding: 20px;
-            border-radius: 8px;
         }
 
-        .item.other {
-            order: 1;
-            background: #ffd7cc;
+        .other {
+            flex:1;
+            align-self: center;
+            order:-1;
         }
     </style>
 </head>
 
 <body>
-    <h2>Flexbox <code>.item</code> Demo</h2>
+    <h2>Flexbox Demo</h2>
     <div class="container">
-        <div class="item other">Item A (order 1)</div>
-        <div class="item">Item B (flex:1, align-self:center, order:2)</div>
-        <div class="item other">Item C (order 1)</div>
+        <div class="item">Item A (order 1)</div>
+        <div class="item">Item C (order 1)</div>
+        <div class="item other">Item B (flex:1, align-self:center, order:-1)</div>
     </div>
 
     <p>
-    <ul>
-        <li>
-            <b>flex: 1</b> - Used for equal-width cards, responsive columns, toolbars.
-        </li>
-        <li>
-            <b>align-self</b> center - Used when one item needs different vertical alignment.
-        </li>
-        <li>
-            <b>order: 2</b> - Used to reorder items for responsive layouts (e.g., mobile vs desktop).
-        </li>
-    </ul>
-
-
-
+        <ul>
+            <li>
+                <b>flex: 1</b> - Used for equal-width cards, responsive columns, toolbars.
+            </li>
+            <li>
+                <b>align-self</b> center - Used when one item needs different vertical alignment.
+            </li>
+            <li>
+                <b>order: 2</b> - Used to reorder items for responsive layouts (e.g., mobile vs desktop).
+            </li>
+        </ul>
     </p>
 </body>
 
